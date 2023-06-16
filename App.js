@@ -1,32 +1,7 @@
 import { Text, View, FlatList, Image, Button, Linking } from 'react-native';
 import React from 'react';
-import { styles } from './styles';
-
-const Home = ({ data }) => {
-  return (
-    <View style={styles.container}>
-      <FlatList
-        keyExtractor={(item, index) => index.toString()}
-        data={data}
-        renderItem={({ item }) => <Item data={item} />}
-      />
-    </View>
-  );
-}
-
-const Loading = () => {
-  return (
-    <View style={styles.container}>
-      <Text>
-        Loading...
-      </Text>
-    </View>
-  );
-}
-
-const readFullArticle = (url) => {
-  Linking.openURL(url).catch((err) => console.error('An error occurred', err));
-}
+import {Home } from './Components/Home';
+import {Loading} from './Components/Loading';
 
 export default function App() {
 
@@ -54,30 +29,12 @@ export default function App() {
         console.error(error);
       });
   }, [])
-  console.log('items');
 
   if (fetchingData) {
     return <Loading />
   } else {
     return <Home data={items} />
   }
-}
-
-const Item = ({ data }) => {
-  return (
-    <View style={styles.itemContainer}>
-      <Image style={styles.itemImage} source={{ uri: data.urlToImage }} />
-      <Text style={styles.itemTitle}>
-        {data.title}
-      </Text>
-      <Text style={styles.itemDescription}>
-        {data.description}
-      </Text>
-      <View style={styles.itemBtn}>
-        <Button onPress={() => { readFullArticle(data.url); }} title="Read" />
-      </View>
-    </View>
-  )
 }
 
 
