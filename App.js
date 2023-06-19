@@ -1,4 +1,3 @@
-import { Text, View, FlatList, Image, Button, Linking } from 'react-native';
 import React from 'react';
 import {Home } from './Components/Home';
 import {Loading} from './Components/Loading';

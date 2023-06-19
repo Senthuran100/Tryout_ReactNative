@@ -3,10 +3,10 @@ import { styles } from '../styles';
 
 export const Loading = () => {
     return (
-      <View style={styles.container}>
-        <Text>
-          Loading...
-        </Text>
-      </View>
+        <View style={styles.container}>
+            <Text>
+                Loading...
+            </Text>
+        </View>
     );
-  }
+}
